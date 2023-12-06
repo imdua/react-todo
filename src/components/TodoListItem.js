@@ -39,7 +39,7 @@ function TodoListItem({
         >
           <MdModeEditOutline />
         </div>
-        <div className="remove" onClick={() => onRemove(id)}>
+        <div className="remove test" onClick={() => onRemove(id)}>
           <MdRemoveCircleOutline />
         </div>
       </li>
