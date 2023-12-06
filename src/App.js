@@ -44,7 +44,6 @@ function App() {
     setTodos((todos) => todos.filter((todo) => todo.id !== id));
   }, []);
   const onChangeSelectedTodo = (selected) => {
-    console.log(selected);
     setSelectedTodo((selectedTodo) => selected);
   };
   const onInsertToggle = useCallback(() => {
@@ -53,6 +52,17 @@ function App() {
     }
     setInsertToggle((prev) => !prev);
   }, [selectedTodo]);
+  const onUpdate = useCallback(
+    (id, text) => {
+      onInsertToggle();
+      setTodos((todos) => {
+        return todos.map((todo) => {
+          return todo.id === id ? { ...todo, text } : todo;
+        });
+      });
+    },
+    [onInsertToggle]
+  );
 
   return (
     <TodoTemplate>
@@ -69,6 +79,7 @@ function App() {
           selectedTodo={selectedTodo}
           onInsertToggle={onInsertToggle}
           insertToggle={insertToggle}
+          onUpdate={onUpdate}
         />
       )}
     </TodoTemplate>
