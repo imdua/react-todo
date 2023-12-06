@@ -1,0 +1,13 @@
+.TodoList {
+  padding: 0;
+  list-style: none;
+  min-height: 320px;
+  max-height: 513px;
+  overflow-y: auto;
+
+  width: 512px;
+  height: 513px;
+  .todolist-item {
+    height: 57px;
+  }
+}
